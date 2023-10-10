@@ -32,7 +32,7 @@ public class MainApp {
         System.out.println("How many constracts to this worker ? ");
         int n = scanner.nextInt();
 
-        for (int i = 1; i <= 1; i ++){
+        for (int i = 1; i <= n; i ++){
             System.out.println("Enter contract #" + i + " data:");
             System.out.print("Date (DD/MM/YYYY): ");
             Date contractDate = sdf.parse(scanner.next());
