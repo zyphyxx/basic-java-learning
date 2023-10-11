@@ -1,9 +1,12 @@
 package projetoVendas.app;
 
+import projetoVendas.app.dao.OrderDAO;
+import projetoVendas.app.dao.OrderItemDAO;
 import projetoVendas.app.entities.Client;
 import projetoVendas.app.entities.Order;
 import projetoVendas.app.entities.OrderItem;
 import projetoVendas.app.entities.Product;
+import projetoVendas.app.enums.OrderStatus;
 
 import java.util.Date;
 import java.util.Locale;
@@ -14,6 +17,8 @@ public class MainProduct {
         Locale.setDefault(Locale.US);
         Scanner scanner = new Scanner(System.in);
 
+
+
         System.out.println("Enter cliente data: ");
         System.out.print("Name: ");
         String name = scanner.next();
@@ -23,18 +28,16 @@ public class MainProduct {
         String birthday = scanner.next();
         System.out.println();
 
-        Client client = new Client(name,email, birthday);
-
         System.out.println(" < Enter order data: > ");
         System.out.print("Status: ");
         String status = scanner.next();
+
+        Client client = new Client(name,email, birthday);
+
         System.out.print("How many items this order ? ");
         int num = scanner.nextInt();
 
         Order order = new Order();
-
-
-
         for (int i = 0; i < num; i ++) {
             System.out.print("Product name: ");
             String prodName = scanner.next();
@@ -44,12 +47,20 @@ public class MainProduct {
             int prodQuantity = scanner.nextInt();
 
             Product product = new Product(prodName,prodPrice);
-             OrderItem orderItem = new OrderItem(prodQuantity,prodPrice,product);
+            OrderItem orderItem = new OrderItem(prodQuantity,prodPrice,product);
+
             order.addItem(orderItem);
+
         }
 
-        System.out.println(client);
-        System.out.println(order.getItems());
+
+
+
+
+
+
+
+
 
 
 

@@ -10,7 +10,7 @@ import java.util.function.ToDoubleBiFunction;
 
 public class Order {
 
-    private String moment;
+
     private OrderStatus status;
     private Client client;
     private List<OrderItem> items = new ArrayList<>();
@@ -18,17 +18,9 @@ public class Order {
     public Order() {
     }
 
-    public Order(String moment, OrderStatus status, Client client) {
+    public Order(OrderStatus status, Client client) {
         this.status = status;
         this.client = client;
-    }
-
-    public String getMoment() {
-        return moment;
-    }
-
-    public void setMoment(String moment) {
-        this.moment = moment;
     }
 
     public OrderStatus getStatus() {
@@ -47,34 +39,25 @@ public class Order {
         this.client = client;
     }
 
-    public List<OrderItem> getItems() {
-        return items;
-    }
-
-    public void setItems(List<OrderItem> items) {
-        this.items = items;
-    }
 
     @Override
     public String toString() {
         return "Order{" +
-                "moment='" + moment + '\'' +
-                ", status=" + status +
+                "status=" + status +
                 ", client=" + client +
                 ", items=" + items +
                 '}';
     }
 
-    public void addItem (OrderItem item){
-
-        //TODO
-    }
-    public void removeItem(OrderItem item){
-        //TODO
-    }
-    public Double total(){
-        return null;
-
+    public void addItem(OrderItem item) {
+        items.add(item);
     }
 
+    public void show(OrderItem item){
+        System.out.print("Cliente: " + client.getName()
+        + "- "+ client.getEmail());
+        for (OrderItem x : items){
+            System.out.print("Quantidade: "+ x.getQuantity() + "preço: "+ x.getPrice());
+        }
+    }
 }
