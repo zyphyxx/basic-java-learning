@@ -2,24 +2,26 @@ package projetoVendas.app.entities;
 
 public class OrderItem {
 
-    private Integer quantity;
+    private int quantity;
     private Double price;
     private Product product;
 
-    public OrderItem(Integer quantity, Double price, Product product) {
+
+
+    public OrderItem() {
+    }
+
+    public OrderItem(int quantity, Double price, Product product) {
         this.quantity = quantity;
         this.price = price;
         this.product = product;
     }
 
-    public OrderItem() {
-    }
-
-    public Integer getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
@@ -39,12 +41,10 @@ public class OrderItem {
         this.product = product;
     }
 
-    @Override
-    public String toString() {
-        return "OrderItem{" +
-                "quantity=" + quantity +
-                ", price=" + price +
-                ", product=" + product +
-                '}';
+
+
+    public Double subTotal(){
+        double x = price * quantity;
+        return x;
     }
 }

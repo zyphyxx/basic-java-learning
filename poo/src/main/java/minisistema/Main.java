@@ -1,7 +1,5 @@
 package minisistema;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -10,19 +8,22 @@ public class Main {
 
         Cadastro cadastro = new Cadastro();
 
-        System.out.println("Digite o nome:");
-        String nome = scanner.next();
+        System.out.println("Quantos alunos para cadastrar? ");
+        int x = scanner.nextInt();
 
-        System.out.println("Digite o sobrenome:");
-        String sobrenome = scanner.next();
+        for (int i = 0; i < x; i++) {
+            System.out.println("Digite o nome do aluno:");
+            String nome = scanner.next();
 
+            System.out.println("Digite o sobrenome:");
+            String sobrenome = scanner.next();
 
+            cadastro.lista.add(new Cadastro(nome,sobrenome));
+        }
 
+        cadastro.criar();
 
-
-
-
-
+        scanner.close();
 
     }
 }

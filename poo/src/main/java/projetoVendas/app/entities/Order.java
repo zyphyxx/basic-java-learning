@@ -13,7 +13,8 @@ public class Order {
 
     private OrderStatus status;
     private Client client;
-    private List<OrderItem> items = new ArrayList<>();
+
+    List<OrderItem> listaDeItems = new ArrayList<>();
 
     public Order() {
     }
@@ -40,24 +41,30 @@ public class Order {
     }
 
 
-    @Override
-    public String toString() {
-        return "Order{" +
-                "status=" + status +
-                ", client=" + client +
-                ", items=" + items +
-                '}';
-    }
-
     public void addItem(OrderItem item) {
-        items.add(item);
-    }
-
-    public void show(OrderItem item){
-        System.out.print("Cliente: " + client.getName()
-        + "- "+ client.getEmail());
-        for (OrderItem x : items){
-            System.out.print("Quantidade: "+ x.getQuantity() + "preço: "+ x.getPrice());
+        listaDeItems.add(item);
+        for (OrderItem produtos : listaDeItems){
+            System.out.print(produtos.getProduct()+", "+ produtos.getQuantity()+", "+ produtos.subTotal());
+            System.out.println("Total price: " + total());
         }
     }
+
+    public void removeItem(OrderItem item) {
+        listaDeItems.remove(item);
+    }
+
+    public double total() {
+        double total = 0.0;
+        for (OrderItem item : listaDeItems) {
+            total += item.subTotal();
+        }
+        return total;
+
+    }
+
+    public void summary(){
+        for (OrderItem produtos : listaDeItems);
+        System.out.println("total price: "+ total());
+    }
+
 }

@@ -7,7 +7,6 @@ public class Cadastro {
 
     private String nome;
     private String sobrenome;
-    private List<Cadastro> lista = new ArrayList<>();
 
 
     public Cadastro(String nome, String sobrenome) {
@@ -36,15 +35,19 @@ public class Cadastro {
 
     @Override
     public String toString() {
-        return "cadastro{" +
+        return "Cadastro{" +
                 "nome='" + nome + '\'' +
                 ", sobrenome='" + sobrenome + '\'' +
+                ", lista=" + lista +
                 '}';
     }
 
+    List<Cadastro> lista = new ArrayList<>();
 
     public void criar(){
-
+        for (Cadastro alunos : lista){
+        System.out.println("Nomes:"+ alunos.getNome());
+        System.out.println("Sobrenomes:"+ alunos.getSobrenome());}
     }
 
 }

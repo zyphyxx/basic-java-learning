@@ -43,12 +43,4 @@ public class Client {
 
     // to string
 
-    @Override
-    public String toString() {
-        return "Client{" +
-                "name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", birthDate='" + birthDate + '\'' +
-                '}';
-    }
 }
