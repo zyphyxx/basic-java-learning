@@ -50,7 +50,7 @@ public class Aluno {
     }
 
     public static double getNotaC() {
-        return ge;
+        return getNotaC();
     }
 
     public void setNotaC(double notaC) {
