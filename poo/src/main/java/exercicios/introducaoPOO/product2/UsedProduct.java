@@ -1,27 +1,21 @@
 package exercicios.introducaoPOO.product2;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class UsedProduct extends Product{
 
-    private Date manufactureDate;
+    private final LocalDate manufactureDate;
 
-    public UsedProduct(String name, Double price, Date manufactureDate) {
+    public UsedProduct(String name, Double price, LocalDate manufactureDate) {
         super(name, price);
         this.manufactureDate = manufactureDate;
     }
 
-    public Date getManufactureDate() {
-        return manufactureDate;
-    }
 
-    public void setManufactureDate(Date manufactureDate) {
-        this.manufactureDate = manufactureDate;
-    }
-    // methods
+// methods
 
     @Override
     public String priceTag() {
-        return super.priceTag();
+        return super.priceTag()+ " (Manufacture date: "+ manufactureDate+" )";
     }
 }

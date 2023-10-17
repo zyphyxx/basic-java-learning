@@ -3,7 +3,7 @@ package exercicios.introducaoPOO.product2;
 
 public class ImportedProduct extends Product{
 
-    private Double customsFee;
+    private final Double customsFee;
 
     public ImportedProduct(String name, Double price, Double customsFee) {
         super(name, price);
@@ -14,19 +14,17 @@ public class ImportedProduct extends Product{
         return customsFee;
     }
 
-    public void setCustomsFee(Double customsFee) {
-        this.customsFee = customsFee;
-    }
     // methods
 
     public Double totalPrice() {
         // TODO: 16/10/2023
-        return null;
+
+        return getPrice() + getCustomsFee();
     }
 
     @Override
     public String priceTag() {
-        return super.priceTag() ;
+        return super.priceTag()+" Customs fee: $ "+getCustomsFee() ;
     }
 
 }

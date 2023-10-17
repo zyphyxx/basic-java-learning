@@ -1,9 +1,10 @@
 package exercicios.introducaoPOO.product2;
 
+
 public class Product {
 
     private String Name;
-    private Double price;
+    private final Double price;
 
     public Product(String name, Double price) {
         Name = name;
@@ -22,12 +23,9 @@ public class Product {
         return price;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
-    }
     // methods
     public String priceTag(){
-        // TODO: 16/10/2023  
-        return null;
+        // TODO: 16/10/2023
+        return getName()+" $ "+getPrice();
     }
 }
