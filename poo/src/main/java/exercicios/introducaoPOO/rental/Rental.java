@@ -13,4 +13,20 @@ public class Rental extends Model{
         this.pickUp = pickUp;
         this.returnn = returnn;
     }
+
+    public LocalDateTime getPickUp() {
+        return pickUp;
+    }
+
+    public void setPickUp(LocalDateTime pickUp) {
+        this.pickUp = pickUp;
+    }
+
+    public LocalDateTime getReturnn() {
+        return returnn;
+    }
+
+    public void setReturnn(LocalDateTime returnn) {
+        this.returnn = returnn;
+    }
 }

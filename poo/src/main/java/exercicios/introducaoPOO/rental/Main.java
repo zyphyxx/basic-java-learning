@@ -2,12 +2,14 @@ package exercicios.introducaoPOO.rental;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 
 public class Main {
     public static void main(String[] args) {
-        Locale.setDefault(Locale.US);
+
         Scanner sc = new Scanner(System.in);
 
         List<Model> list = new ArrayList<>();
@@ -17,13 +19,25 @@ public class Main {
         System.out.print("Car model: ");
         String carModel = sc.next();
 
-        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 
-        System.out.println("Pickup (dd/MM/yyyy HH:mm): ");
-        LocalDateTime pickup = LocalDateTime.parse(sc.nextLine(), fmt);
+        try {
+            DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 
-        System.out.println("Return (dd/MM/yyyy HH:mm): ");
-        LocalDateTime returnn = LocalDateTime.parse(sc.nextLine(), fmt);
+            System.out.println("Pickup (dd/MM/yyyy HH:mm): ");
+            String p = sc.nextLine();
+
+            System.out.println("Return (dd/MM/yyyy HH:mm): ");
+            String r = sc.nextLine();
+
+            LocalDateTime start = LocalDateTime.parse(p, fmt);
+            LocalDateTime finish = LocalDateTime.parse(r, fmt);
+
+            list.add(new Rental(carModel, start, finish));
+
+        } catch (Exception e) {
+            System.out.println("Formato de data e hora inválido. Certifique-se de usar o formato dd/MM/yyyy HH:mm.");
+
+        }
 
         System.out.println("Enter price per hour: ");
         double priceHour = sc.nextDouble();
@@ -31,12 +45,12 @@ public class Main {
         System.out.println("Enter price per day: ");
         double pricePerDay = sc.nextDouble();
 
-        list.add(new Rental(carModel, pickup, returnn));
         list.add(new Valor(carModel, priceHour, pricePerDay));
 
         for (Model x : list) {
             System.out.println(x);
         }
+
     }
 }
 
